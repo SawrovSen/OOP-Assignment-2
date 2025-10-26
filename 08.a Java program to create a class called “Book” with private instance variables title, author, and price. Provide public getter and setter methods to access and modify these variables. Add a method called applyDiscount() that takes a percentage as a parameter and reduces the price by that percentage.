@@ -1,0 +1,54 @@
+public class Book {
+    private String title;
+    private String author;
+    private double price;
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(String author) {
+        this.author = author;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
+    }
+
+    public void applyDiscount(double percentage) {
+        if (percentage > 0 && percentage <= 100) {
+            price = price - (price * percentage / 100);
+        } else {
+            System.out.println("Invalid discount percentage!");
+        }
+    }
+
+    public void displayInfo() {
+        System.out.println("Title: " + title);
+        System.out.println("Author: " + author);
+        System.out.println("Price: $" + price);
+        System.out.println();
+    }
+
+    public static void main(String[] args) {
+        Book book = new Book();
+        book.setTitle("The Alchemist");
+        book.setAuthor("Paulo Coelho");
+        book.setPrice(20.0);
+
+        book.applyDiscount(10);
+        book.displayInfo();
+    }
+}
